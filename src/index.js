@@ -8,32 +8,41 @@ import {createStore} from "redux";
 
 const reducer=(state=initialState,action)=>{
     switch (action.type){
-        case 'INC_COUNTER':{
+        case 'PLUS_ONE':{
 
             return{
                 ...state,
-                counter: state.counter+1,
+                result: state.result+1
             }
         }
-        case 'DEC_COUNTER':{
+        case 'MINUS_ONE':{
             return{
                 ...state,
-                counter: state.counter-1
+                result: state.result-1
             }
 
         }
         case 'RESET':{
             return{
                 ...state,
-                counter: 0
+                result: 0
             }
         }
-        case 'CHANGE_USER':
+        case 'PLUS_HUNDRED':
             return {
                 ...state,
-                user: action.payload
+                result: state.result+100
             }
-
+        case 'MINUS_HUNDRED':
+            return {
+                ...state,
+                result: state.result-100
+            }
+        case 'ADD_NUM':
+            return {
+                ...state,
+                result: state.result+action.payload
+            }
         default:{
             return state
         }
@@ -41,13 +50,9 @@ const reducer=(state=initialState,action)=>{
 }
 
 const initialState={
-    counter:0,
-    user:{
-        name:'',
-        id:0
-    }
-
+    result:0
 }
+
 
 const store=createStore(reducer);
 
