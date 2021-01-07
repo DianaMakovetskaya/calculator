@@ -1,0 +1,66 @@
+.MainPage {
+    background: darkgoldenrod;
+    height: 500px;
+    width: 500px;
+    margin: 50px auto;
+    border-radius: 50px;
+    border: #282c34 solid 2px;
+    box-sizing: border-box;
+    text-align: center
+}
+
+.tittle {
+    font-weight: bold;
+    margin: 0 auto
+}
+
+#result {
+    height: 50px;
+    border: #282c34 solid 2px;
+    width: 70%;
+    margin: 20px auto;
+    background-color: orange;
+
+}
+
+.operations {
+    display: flex;
+    margin: 20px auto;
+    width: 70%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#one, #MinusOne, #OneHundred, #MinusOneHundred {
+    height: 45px;
+    width: 150px;
+}
+
+#OneHundred, #MinusOneHundred {
+    margin-top: 25px;
+}
+
+#reset {
+    height: 50px;
+    margin: 20px auto;
+    border: #282c34 solid 2px;
+    width: 40%;
+    background-color: white;
+}
+
+.inputForm {
+    font-size: 23px;
+}
+
+#inputValue,#submit {
+    height: 30px;
+    width: 150px;
+
+}
+
+
+#inputForm {
+    display: inline-block;
+}
+
+
