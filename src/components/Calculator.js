@@ -6,6 +6,7 @@ export default function Calculator(){
 
     const [result,setResult]=useState(0)
 
+  //todo/--------------------- ці методи скоротити до єдного---------------
     const addOne=()=>{
         setResult((prev)=>prev+1);
     }
@@ -18,6 +19,7 @@ export default function Calculator(){
     const subtractHundred=()=>{
         setResult((prev)=>prev-100);
     }
+    //endtodo-----------------------------------------------------------
     const reset=()=>{
         setResult(0);
     }
@@ -41,6 +43,7 @@ export default function Calculator(){
                     <button id={'MinusOneHundred'} onClick={subtractHundred}>-100</button>
                 </div>
                 <button id={'reset'} onClick={reset}>Reset</button>
+              {/*//todo ---------- зробити контрольований input без форми-------------*/}
                 <form action="" name={'inputForm'} id={'inputForm'} onSubmit={addNum}>
                     Число
                     <input type="text" id={'inputValue'} ref={MyInput}/>
