@@ -8,17 +8,17 @@ import {createStore} from "redux";
 
 const reducer=(state=initialState,action)=>{
     switch (action.type){
-        case 'PLUS_ONE':{
-
-            return{
-                ...state,
-                result: state.result+1
-            }
-        }
-        case 'MINUS_ONE':{
-            return{
-                ...state,
-                result: state.result-1
+        case 'ADD':{
+            if(state.result+action.payload>=0){
+                return{
+                    ...state,
+                    result: state.result+action.payload
+                }
+            }else {
+                return {
+                    ...state,
+                    result: 0
+                }
             }
 
         }
@@ -28,21 +28,6 @@ const reducer=(state=initialState,action)=>{
                 result: 0
             }
         }
-        case 'PLUS_HUNDRED':
-            return {
-                ...state,
-                result: state.result+100
-            }
-        case 'MINUS_HUNDRED':
-            return {
-                ...state,
-                result: state.result-100
-            }
-        case 'ADD_NUM':
-            return {
-                ...state,
-                result: state.result+action.payload
-            }
         default:{
             return state
         }

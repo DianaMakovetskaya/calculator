@@ -17,16 +17,18 @@ export default function Calculator() {
             </div>
 
             <div className="operations">
-                <button id={'one'} onClick={() => dispatch({type: "PLUS_ONE"})}>1</button>
-                <button id={'MinusOne'} onClick={() => dispatch({type: "MINUS_ONE"})}>-1</button>
-                <button id={'OneHundred'} onClick={() => dispatch({type: "PLUS_HUNDRED"})}>100</button>
-                <button id={'MinusOneHundred'} onClick={() => dispatch({type: "MINUS_HUNDRED"})}>-100</button>
+                <button id={'one'} onClick={() => dispatch({type: "ADD",payload:1})}>1</button>
+                <button id={'MinusOne'} onClick={() => dispatch({type: "ADD",payload:-1})}>-1</button>
+                <button id={'OneHundred'} onClick={() => dispatch({type: "ADD",payload:100})}>100</button>
+                <button id={'MinusOneHundred'} onClick={() => dispatch({type: "ADD",payload:-100})}>-100</button>
             </div>
             <button id={'reset'} onClick={() => dispatch({type: "RESET"})}>Reset</button>
 
             <form action="" name={'inputForm'} id={'inputForm'} onSubmit={(e) => {
                 e.preventDefault()
-                dispatch({type: 'ADD_NUM', payload: (+MyInput.current.value)})
+                if(!isNaN(parseInt(MyInput.current.value))){
+                    dispatch({type: 'ADD', payload: (parseInt(MyInput.current.value))})
+                }
             }}>
                 Число
                 <input type="text" id={'inputValue'} ref={MyInput}/>
