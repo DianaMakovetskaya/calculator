@@ -42,6 +42,7 @@ export default function Calculator(){
                     <button id={'MinusOneHundred'} onClick={()=>add(-100)}>-100</button>
                 </div>
                 <button id={'reset'} onClick={reset}>Reset</button>
+              {/*//todo позбавитись форми*/}
                 <form action="" name={'inputForm'} id={'inputForm'} onSubmit={addNum}>
                     Число
                     <input type="text" id={'inputValue'} ref={MyInput}/>
