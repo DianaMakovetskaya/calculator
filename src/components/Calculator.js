@@ -8,12 +8,12 @@ export default function Calculator(){
 
     const add=(num)=>{
         setResult((prev)=>{
-            if((prev+num)>0){
-                return prev+num;
-            }else {
-                return 0;
-            }
-
+            // if((prev+num)>0){
+            //     return prev+num;
+            // }else {
+            //     return 0;
+            // }
+          return prev+num ? prev+num : 0;
         });
 
     }
@@ -42,6 +42,7 @@ export default function Calculator(){
                     <button id={'MinusOneHundred'} onClick={()=>add(-100)}>-100</button>
                 </div>
                 <button id={'reset'} onClick={reset}>Reset</button>
+              {/*//todo позбавитись форми*/}
                 <form action="" name={'inputForm'} id={'inputForm'} onSubmit={addNum}>
                     Число
                     <input type="text" id={'inputValue'} ref={MyInput}/>
