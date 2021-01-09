@@ -6,24 +6,25 @@ export default function Calculator(){
 
     const [result,setResult]=useState(0)
 
-    const addOne=()=>{
-        setResult((prev)=>prev+1);
-    }
-    const subtractOne=()=>{
-        setResult((prev)=>prev-1);
-    }
-    const addHundred=()=>{
-        setResult((prev)=>prev+100);
-    }
-    const subtractHundred=()=>{
-        setResult((prev)=>prev-100);
+    const add=(num)=>{
+        setResult((prev)=>{
+            if((prev+num)>0){
+                return prev+num;
+            }else {
+                return 0;
+            }
+
+        });
+
     }
     const reset=()=>{
         setResult(0);
     }
     const addNum=(e)=>{
         e.preventDefault();
-        setResult((prev)=>prev+(+MyInput.current.value))
+        if (!isNaN(parseInt(MyInput.current.value))){
+            add(parseInt(MyInput.current.value));
+        }
     }
         return (
             <div className={'MainPage'}>
@@ -35,10 +36,10 @@ export default function Calculator(){
 
                 </div>
                 <div className="operations">
-                    <button id={'one'} onClick={addOne}>1</button>
-                    <button id={'MinusOne'} onClick={subtractOne}>-1</button>
-                    <button id={'OneHundred'} onClick={addHundred}>100</button>
-                    <button id={'MinusOneHundred'} onClick={subtractHundred}>-100</button>
+                    <button id={'one'} onClick={()=>add(1)}>1</button>
+                    <button id={'MinusOne'} onClick={()=>add(-1)}>-1</button>
+                    <button id={'OneHundred'} onClick={()=>add(100)}>100</button>
+                    <button id={'MinusOneHundred'} onClick={()=>add(-100)}>-100</button>
                 </div>
                 <button id={'reset'} onClick={reset}>Reset</button>
                 <form action="" name={'inputForm'} id={'inputForm'} onSubmit={addNum}>
