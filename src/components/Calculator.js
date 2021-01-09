@@ -8,12 +8,12 @@ export default function Calculator(){
 
     const add=(num)=>{
         setResult((prev)=>{
-            if((prev+num)>0){
-                return prev+num;
-            }else {
-                return 0;
-            }
-
+            // if((prev+num)>0){
+            //     return prev+num;
+            // }else {
+            //     return 0;
+            // }
+          return prev+num ? prev+num : 0;
         });
 
     }
